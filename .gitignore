@@ -17,3 +17,5 @@
 .gnupg/tofu.db
 .gnupg/trustdb.gpg
 .wireshark/recent*
+.wireshark/.fccache-new
+.wireshark/language
