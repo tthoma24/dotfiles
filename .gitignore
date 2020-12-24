@@ -2,6 +2,7 @@
 *.pem
 *.bak
 *.key
+*.pid
 *~
 .atom/packages*
 .aws/aws.properties
