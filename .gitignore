@@ -19,3 +19,4 @@
 .wireshark/recent*
 .wireshark/.fccache-new
 .wireshark/language
+.netrc
