@@ -1,0 +1,15 @@
+*.log
+*.pem
+*.bak
+*.key
+*~
+.atom/packages*
+.aws/aws.properties
+.aws/credentials*
+.gnupg/.#*
+.gnupg/randomseed
+.gnupg/reader0.status
+.gnupg/secring.gpg
+.gnupg/tofudb
+.gnupg/trustdb.gpg
+.wireshark/recent*
