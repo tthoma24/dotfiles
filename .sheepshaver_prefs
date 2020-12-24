@@ -1,0 +1,36 @@
+disk /Applications/COIV4.0.1+/Classic.app/COI.app/.Classic.dmg
+disk /Users/Shared/400Meg.dmg
+disk /Users/Shared/800Meg.dmg
+disk /Users/Shared/1200Meg.dmg
+disk /Users/Shared/MyOldHD.dmg
+disk /Users/Shared/COIHD.dmg
+extfs /Users/Shared/
+screen win/1024/768
+windowmodes 0
+screenmodes 0
+seriala 
+serialb 
+rom COI.app/.old.rom
+bootdrive 0
+bootdriver 0
+ramsize 268435456
+frameskip 1
+gfxaccel true
+nocdrom false
+nonet false
+nosound false
+nogui true
+noclipconversion false
+ignoresegv false
+jit true
+jit68k false
+keyboardtype 5
+ether slirp
+keycodes true
+keycodefile COI.app/.BasiliskII_keycodes
+mousewheelmode 1
+mousewheellines 3
+dsp /dev/dsp
+mixer /dev/mixer
+ignoresegv false
+idlewait false
