@@ -24,11 +24,12 @@
 
 [core]
 	excludesfile = /Users/tthoma24/.gitignore_global
+	editor = emacs
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/tthoma24/.stCommitMsg
+[init]
+	defaultBranch = main
