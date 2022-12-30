@@ -11,17 +11,23 @@
 #umask 022
 
 source /etc/profile
-source ~/src/kdo/kdo.sh
 
-if [ "$(uname)" = 'Darwin' ]; then
-        export BASH_SILENCE_DEPRECATION_WARNING=1
+#kdo - https://web.mit.edu/snippets/kerberos/kdo
+if [-f "~/src/kdo/kdo.sh" || -f "~/bin/kdo.sh"]; then
+    source ~/src/kdo/kdo.sh
 fi
 
+# maxOS only bash deprecation silence, MacPorts paths, other Mac-specific customizations
+if [ "$(uname)" = 'Darwin' ]; then
+        export BASH_SILENCE_DEPRECATION_WARNING=1
+	export PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/3.8/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+	export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
+fi
+
+#No thank you fuck you M$
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
-export PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/3.8/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 #export PYTHONPATH="$(find /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/ -maxdepth 1 -type d | sed '/\/\./d' | tr '\n' ':' | sed 's/:$//')"
-export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
 
 if [ -d "$HOME/src/adb-fastboot/platform-tools" ] ; then
      export PATH="$HOME/src/adb-fastboot/platform-tools:$PATH"
@@ -29,6 +35,17 @@ fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
+    # set editor, if emacs is installed
+    if [-f "/usr/bin/emacs" || -f "/opt/local/bin/emacs"]; then
+       VISUAL=emacs; export VISUAL
+       EDITOR=emacs; export EDITOR
+    elif [-f "/usr/bin/nano" || -f "/opt/local/bin/nano"]; then
+       VISUAL=nano; export VISUAL
+       EDITOR=nano; export EDITOR
+    else
+       VISUAL=vi; export VISUAL
+       EDITOR=vi; export EDITOR
+    fi
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
