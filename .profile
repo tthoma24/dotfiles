@@ -13,7 +13,7 @@
 source /etc/profile
 
 #kdo - https://web.mit.edu/snippets/kerberos/kdo
-if [-f "~/src/kdo/kdo.sh" || -f "~/bin/kdo.sh"]; then
+if [[ -f "~/src/kdo/kdo.sh" || -f "~/bin/kdo.sh" ]]; then
     source ~/src/kdo/kdo.sh
 fi
 
@@ -36,10 +36,10 @@ fi
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # set editor, if emacs is installed
-    if [-f "/usr/bin/emacs" || -f "/opt/local/bin/emacs"]; then
+    if [[ -f "/usr/bin/emacs" || -f "/opt/local/bin/emacs" ]]; then
        VISUAL=emacs; export VISUAL
        EDITOR=emacs; export EDITOR
-    elif [-f "/usr/bin/nano" || -f "/opt/local/bin/nano"]; then
+    elif [[ -f "/usr/bin/nano" || -f "/opt/local/bin/nano" ]]; then
        VISUAL=nano; export VISUAL
        EDITOR=nano; export EDITOR
     else
